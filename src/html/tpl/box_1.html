@@ -1,0 +1,34 @@
+<script type="text/ng-template" id="box_1.html">
+    <div ng-controller="box_1Controller" class="panel panel-default panel-null" id="box_1">
+        <ul class="list-inline">
+            <li>
+                <dl style="width: 122px" class="dl-1">
+                    <dt style="font-size: 18px;">{{zongheMsg.zhengfu}} <small style="font-size: 10px">(条)</small></dt>
+                    <dd style="font-size: 11px;">政府检查隐患</dd>
+                </dl>
+            </li>
+
+            <li>
+                <dl style="width: 121px" class="dl-2">
+                    <dt style="font-size: 18px;">{{zongheMsg.qiye}} <small style="font-size: 10px">(条)</small></dt>
+                    <dd style="font-size: 11px;">政府检查隐患</dd>
+                </dl>
+            </li>
+
+            <li>
+                <ui-select ng-model="switchPage.selected"  class="select" theme="bootstrap"  ng-disabled="disabled"
+
+                           title="Choose a country" on-select="dianji($model)">
+                    <ui-select-match placeholder="选择">{{$select.selected.name}}
+                    </ui-select-match>
+                    <ui-select-choices repeat="country in switchPage | filter: $select.search">
+                       <span ng-bind-html="country.name | highlight: $select.search"></span>
+                    </ui-select-choices>
+                </ui-select>
+            </li>
+        </ul>
+
+
+
+    </div>
+</script>

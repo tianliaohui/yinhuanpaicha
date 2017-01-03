@@ -1,0 +1,51 @@
+@import "tpl/common";
+body{
+  background-color: @bg;
+  //overflow: hidden;
+  color: @text-color-default;
+
+  padding-top: 10px;
+}
+
+.col-padding-left{
+  padding-left:0;
+}
+.col-padding-right{
+  padding-right:0;
+}
+
+.panel-default{
+  background-color: @panel-bg;
+  border-color: @panel-border;
+  margin-bottom: 10px;
+  .panel-heading{
+    padding: 0 5px;
+    background: #032D4F;
+    border: none;
+    color: @text-color-white;
+    height: 25px;
+    line-height: 25px;
+
+  }
+}
+
+//无边框 无背景色
+.panel-null{
+  background-color: inherit;
+  border:none;
+
+}
+
+
+.list-group{
+  .list-group-item{
+    border-radius: @radius;
+  }
+}
+
+
+
+.progress{
+  border-radius: @radius;
+  margin: 0;
+}

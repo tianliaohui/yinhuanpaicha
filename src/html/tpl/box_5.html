@@ -1,0 +1,30 @@
+<script type="text/ng-template" id="box_5.html">
+    <div ng-controller="box_5Controller" class="panel panel-default" id="box_5">
+        <div class="panel-heading clearfix">
+            检查企业分布情况
+            <div class="pull-right" style="line-height: 25px; font-size: 12px; color: #00B9BB;">120地区</div>
+        </div>
+        <div class="panel-body" style="padding: 0;   overflow-x:hidden; overflow-y: auto;">
+
+            <div ng-repeat="qiye in qiyeList" class="slide-right"
+                 style="border-bottom: 1px solid #1e3449;background-color: #022038; margin-top: 5px">
+                <div class="progress " style="height:4px;background-color: #051222">
+                    <div class="progress-bar progress-bar-success" role="progressbar"
+                         aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
+                         style="width: {{qiye.percentage}};background-color:#25aaa7">
+                        <span class="sr-only">40% Complete (success)</span>
+                    </div>
+                </div>
+                <div style="font-size: 11px; padding:2px 5px;" class="clearfix">
+                    <div class="pull-left">
+                        <span ng-bind="qiye.name">企业名字</span>
+                        <span ng-bind="qiye.city">城市</span>
+                    </div>
+                    <div class="pull-right" ng-bind="qiye.number">120</div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</script>

@@ -1,0 +1,21 @@
+{
+  "name": "aa",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "liaohui1080 <liaohui1080@tianliaohui.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "layer": "^3.0.1",
+    "Snap.svg": "snap.svg#^0.4.1"
+  }
+}

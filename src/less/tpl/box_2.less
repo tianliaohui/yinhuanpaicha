@@ -1,0 +1,41 @@
+@import "common";
+#box_2{
+  height: 228px;
+  overflow: hidden;
+  .table{
+    font-size: 12px;
+
+
+    thead th{
+      background: #2E3440;
+      padding: 5px 10px;
+      border-bottom:5px solid #02111C;
+    }
+
+    tbody td{
+      padding: 0 10px;
+      border-bottom:5px solid #02111C;
+
+    }
+    tbody > tr {
+      background-color: #021D33;
+      color: @color-17;
+    }
+    //tbody > tr:nth-of-type(odd) {
+    //  background-color: #032845;
+    //}
+
+    tbody > tr {
+      &:hover{
+        background-color: @color-4;
+        color: #FFF;
+      }
+    }
+
+    .action{
+      background-color: @color-4;
+      color: #FFF;
+    }
+  }
+}
+

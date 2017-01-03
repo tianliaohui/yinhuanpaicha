@@ -1,0 +1,15 @@
+{
+  "status": 1,
+  "info": "企业列表",
+  "data": [
+    {"id":1,"name":"贵阳市","qiyeShuliang":12,"yinhuanShuliang":12, "upTime":"2012-12-11" , "selected":true},
+    {"id":2,"name":"六盘水市","qiyeShuliang":12,"yinhuanShuliang":12, "upTime":"2012-12-11"},
+    {"id":3,"name":"遵义市","qiyeShuliang":12,"yinhuanShuliang":12, "upTime":"2012-12-11"},
+    {"id":4,"name":"安顺市","qiyeShuliang":12,"yinhuanShuliang":12, "upTime":"2012-12-11"},
+    {"id":5,"name":"毕节市","qiyeShuliang":12,"yinhuanShuliang":12, "upTime":"2012-12-11"},
+    {"id":6,"name":"铜仁市","qiyeShuliang":12,"yinhuanShuliang":12, "upTime":"2012-12-11"},
+    {"id":7,"name":"黔南布依族苗族自治州","qiyeShuliang":12,"yinhuanShuliang":12, "upTime":"2012-12-11"},
+    {"id":8,"name":"黔西南布依族苗族自治州","qiyeShuliang":12,"yinhuanShuliang":12, "upTime":"2012-12-11"},
+    {"id":9,"name":"黔东南苗族侗族自治州","qiyeShuliang":12,"yinhuanShuliang":12, "upTime":"2012-12-11"}
+  ]
+}

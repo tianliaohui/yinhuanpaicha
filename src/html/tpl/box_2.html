@@ -1,0 +1,25 @@
+<script type="text/ng-template" id="box_2.html">
+    <div ng-controller="box_2Controller" class="panel panel-default panel-null" id="box_2">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>城市名字</th>
+                <th class="text-center">企业数量</th>
+                <th class="text-center">隐患数量</th>
+                <th class="text-right" style="width: 90px">更新时间</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="qiye in qiyeList"  ng-class="{true:'action'}[qiye.selected]" class="toggle">
+                <td ng-bind="qiye.name">...</td>
+                <td class="text-center" ng-bind="qiye.qiyeShuliang">...</td>
+                <td class="text-center" ng-bind="qiye.yinhuanShuliang">...</td>
+                <td class="text-right" ng-bind="qiye.upTime">...</td>
+            </tr>
+
+            </tbody>
+        </table>
+
+
+    </div>
+</script>

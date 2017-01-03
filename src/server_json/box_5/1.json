@@ -1,0 +1,15 @@
+{
+  "status": 1,
+  "info": "检查企业分布情况",
+  "data": [
+    {"id":1,"name":"企业名字","city":"城市名字", "number":100, "percentage":"30%", "upTime":"2012-12-11"},
+    {"id":1,"name":"企业名字","city":"城市名字", "number":100, "percentage":"50%", "upTime":"2012-12-11"},
+    {"id":1,"name":"企业名字","city":"城市名字", "number":100, "percentage":"30%", "upTime":"2012-12-11"},
+    {"id":1,"name":"企业名字","city":"城市名字", "number":100, "percentage":"30%", "upTime":"2012-12-11"},
+    {"id":1,"name":"企业名字","city":"城市名字", "number":100, "percentage":"30%", "upTime":"2012-12-11"},
+    {"id":1,"name":"企业名字","city":"城市名字", "number":100, "percentage":"30%", "upTime":"2012-12-11"},
+    {"id":1,"name":"企业名字","city":"城市名字", "number":100, "percentage":"30%", "upTime":"2012-12-11"},
+    {"id":1,"name":"企业名字","city":"城市名字", "number":100, "percentage":"30%", "upTime":"2012-12-11"},
+    {"id":1,"name":"企业名字","city":"城市名字", "number":100, "percentage":"30%", "upTime":"2012-12-11"}
+  ]
+}
