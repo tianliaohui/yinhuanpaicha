@@ -11,7 +11,7 @@ const gulp = require("gulp"),
 gulp.task('connect', function () {
     connect.server({
         root: './build',
-        port: 9090,
+        port: 6060,
         livereload: true,
         middleware: function (connect, opt) {
             var Proxy = require('gulp-connect-proxy');//服务器端口扩展
