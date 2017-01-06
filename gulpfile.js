@@ -15,7 +15,7 @@ gulp.task('connect', function () {
         livereload: true,
         middleware: function (connect, opt) {
             var Proxy = require('gulp-connect-proxy');//服务器端口扩展
-            opt.route = '/proxy';
+            opt.route = '/proxy/220.197.219.235:8089/';
             var proxy = new Proxy(opt);
             return [proxy];
         }
