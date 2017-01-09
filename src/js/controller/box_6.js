@@ -3,32 +3,33 @@
  */
 console.log("box_6");
 var thisController = angular.module("box_6Module", []);
-thisController.controller("box_6Controller", ['$scope', 'lh_ajax', function ($scope, lh_ajax) {
+thisController.controller("box_6Controller", ['$scope', 'lh_ajax','$rootScope',
+    function ($scope, lh_ajax,$rootScope) {
     $scope.ceshi = "测试成功"
 
 
 
     $scope.$on('boxAll',function (event ,boxMsg) {
         lh_ajax.get({
-            url: $scope.http + "box_6/1.json",
+            url: $rootScope.URL.box_6.url,
             data:boxMsg?boxMsg:null,
             success: function (msg) {
                 // console.log(msg.data)
-                level(msg.data)
+                level(msg.data,msg.info);
                 $scope.$emit("box_6",{start:1,info:"box_6?隐患加载成功",data:null});
             }
 
         });
     });
 
-    function level(o) {
+    function level(o,title) {
         var myChart = echarts.init(document.getElementById('box_6'));
         var option = {
 
             backgroundColor: '#021729',
-            color: [],
+            color: ['#FE5945','#032D4F'],
             title: {
-                text: '隐患排查级别',
+                text: title? title:'没有标题',
                 bottom: 0,
                 textStyle: {
 
@@ -48,7 +49,7 @@ thisController.controller("box_6Controller", ['$scope', 'lh_ajax', function ($sc
                 x: "right",
 
                 height: 20,
-                data: ['第一个', '第二个'],
+                data: [],
                 formatter: function (name) {
                     return ""
                 }
@@ -93,15 +94,10 @@ thisController.controller("box_6Controller", ['$scope', 'lh_ajax', function ($sc
         //把数据添加到option里面
         for (var s = 0; s < o.length; s++) {
             option.series.data[s] = {
-                value:o[s].value,
-                name:o[s].name,
-                itemStyle: {
-                    normal: {
-                        color: o[s].color
-
-                    }
-                }
+                value:o[s].number,
+                name:o[s].name
             };
+            option.legend.data.push(o[s].name);
 
         }
         myChart.setOption(option)

@@ -12,9 +12,9 @@
             <tbody>
             <tr ng-repeat="qiye in qiyeList"  ng-class="{true:'action'}[qiye.selected]" class="toggle">
                 <td ng-bind="qiye.name">...</td>
-                <td class="text-center" ng-bind="qiye.qiyeShuliang">...</td>
-                <td class="text-center" ng-bind="qiye.yinhuanShuliang">...</td>
-                <td class="text-right" ng-bind="qiye.upTime">...</td>
+                <td class="text-center" ng-bind="qiye.qyNum">...</td>
+                <td class="text-center" ng-bind="qiye.yhNum">...</td>
+                <td class="text-right" ng-bind="nowTtime | timeFormat:'YYYY/MM/DD'">...</td>
             </tr>
 
             </tbody>

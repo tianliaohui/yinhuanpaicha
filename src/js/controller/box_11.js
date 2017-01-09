@@ -3,17 +3,17 @@
  */
 console.log("box_11");
 var thisController = angular.module("box_11Module", []);
-thisController.controller("box_11Controller", ['$scope', 'lh_ajax', function ($scope, lh_ajax) {
+thisController.controller("box_11Controller", ['$scope', 'lh_ajax','$rootScope', function ($scope, lh_ajax,$rootScope) {
 
 
 
     $scope.$on('boxAll',function (event ,boxMsg) {
         lh_ajax.get({
-            url: $scope.http + "box_11/1.json",
+            url: $rootScope.URL.box_11.url,
             data:boxMsg?boxMsg:null,
             success: function (msg) {
                 // console.log(msg.data)
-                box_11_jianguanshu2(msg.data)
+                box_11_jianguanshu2(msg.data,msg.info);
 
                 $scope.$emit("box_9",{start:1,info:"box_6?隐患加载成功",data:null});
             }
@@ -24,13 +24,13 @@ thisController.controller("box_11Controller", ['$scope', 'lh_ajax', function ($s
 
 
 
-function box_11_jianguanshu2(o) {
+function box_11_jianguanshu2(o,title) {
     var myChart = echarts.init(document.getElementById('box_11'));
 
     var option = {
         //     // 图表标题
         title: {
-            text: " 企业捡管隐患数 ",
+            text: title,
             textStyle: {
 
                 color: '#fff',         // 图例文字颜色
@@ -47,7 +47,7 @@ function box_11_jianguanshu2(o) {
         },
 
         series: {
-            name: '监管隐患数',
+            name: '企业类型',
             type: 'pie',
             startAngle: 10,
             minAngle: 5,

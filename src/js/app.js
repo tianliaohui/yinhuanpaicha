@@ -1,11 +1,11 @@
 /**
  * Created by liaohui1080 on 2016/12/23.
  */
- angular.module("myApp", [
+angular.module("myApp", [
 
     //自己写的
     'lh_http',
-
+    'lh_time',
 
 
     'box_1Module',
@@ -22,15 +22,15 @@
     'rootModule', //主控制器 写在html上的
 
     //第三方控件
-     'ngAnimate',
+    'ngAnimate',
     'ngSanitize',
     'ui.select',
     'ui.select-filter'
 
 
-]).config(function($httpProvider){
+]).config(function ($httpProvider) {
 
-    console.log($httpProvider.defaults.headers.common)
+    // console.log($httpProvider.defaults.headers.common)
 
     //修改/操作$httpProvider.defaults.headers.common对象的属性以改变$http的默认请求头配置
 

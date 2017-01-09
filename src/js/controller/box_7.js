@@ -3,32 +3,33 @@
  */
 console.log("box_7");
 var thisController = angular.module("box_7Module", []);
-thisController.controller("box_7Controller", ['$scope', 'lh_ajax', function ($scope, lh_ajax) {
-    $scope.ceshi="测试成功"
+thisController.controller("box_7Controller", ['$scope', 'lh_ajax', '$rootScope',
+    function ($scope, lh_ajax,$rootScope) {
+    $scope.ceshi="测试成功";
 
 
 
     $scope.$on('boxAll',function (event ,boxMsg) {
         lh_ajax.get({
-            url: $scope.http + "box_7/1.json",
+            url: $rootScope.URL.box_7.url,
             data:boxMsg?boxMsg:null,
             success: function (msg) {
                 // console.log(msg.data)
-                level(msg.data)
+                level(msg.data, msg.info);
                 $scope.$emit("box_7",{start:1,info:"box_7?隐患加载成功",data:null});
             }
 
         });
     });
 
-    function level(o) {
+    function level(o,title) {
         var myChart = echarts.init(document.getElementById('box_7'));
         var option = {
 
             backgroundColor: '#021729',
-            color: [],
+            color: ['#032D4F','#0071BB'],
             title: {
-                text: '检查主体',
+                text: title,
                 bottom: 0,
                 textStyle: {
 
@@ -48,7 +49,7 @@ thisController.controller("box_7Controller", ['$scope', 'lh_ajax', function ($sc
                 x: "right",
 
                 height: 20,
-                data: ['第一个', '第二个'],
+                data: [],
                 formatter: function (name) {
                     return ""
                 }
@@ -90,20 +91,21 @@ thisController.controller("box_7Controller", ['$scope', 'lh_ajax', function ($sc
             }
         };
 
+
         //把数据添加到option里面
         for (var s = 0; s < o.length; s++) {
             option.series.data[s] = {
-                value:o[s].value,
+                value:o[s].number,
                 name:o[s].name,
-                itemStyle: {
-                    normal: {
-                        color: o[s].color
-
-                    }
-                }
             };
 
+            option.legend.data.push(o[s].name);
+
+
         }
+
+
+
         myChart.setOption(option)
 
     }

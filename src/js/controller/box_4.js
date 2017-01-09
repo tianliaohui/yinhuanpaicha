@@ -3,7 +3,8 @@
  */
 console.log("box_4 地图");
 var thisController = angular.module("box_4Module", []);
-thisController.controller("box_4Controller", ['$scope', 'lh_ajax', function ($scope, lh_ajax) {
+thisController.controller("box_4Controller", ['$scope', 'lh_ajax','$rootScope',
+    function ($scope, lh_ajax,$rootScope) {
 
 
 
@@ -11,7 +12,7 @@ thisController.controller("box_4Controller", ['$scope', 'lh_ajax', function ($sc
 
 
     lh_ajax.get({
-        url: $scope.http + "box_4/guizhou.json",
+        url:  $rootScope.URL.box_4.url,
         success: function (msg) {
 
             var chart = echarts.init(document.getElementById('map'));
@@ -56,7 +57,7 @@ thisController.controller("box_4Controller", ['$scope', 'lh_ajax', function ($sc
 
                         }
                     },
-                    regions:[{"name":"贵阳市","selected":true}]
+                    regions:[{"name":"贵阳","selected":true}]
 
                 },
                 series: {
@@ -80,9 +81,9 @@ thisController.controller("box_4Controller", ['$scope', 'lh_ajax', function ($sc
 
 
             //接到主控制器发来的刷新消息
-            $scope.$on("boxAll",function (event,msg) {
+            $scope.$on("boxAll",function (event,boxMsg) {
                 // console.log(msg)
-                option3.geo.regions=[msg];
+                option3.geo.regions=[boxMsg];
                 chart.setOption(option3);
 
                 $scope.$emit("box_4", {start: 1, info: "box_4?隐患加载成功", data: null});

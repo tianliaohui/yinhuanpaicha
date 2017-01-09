@@ -1,6 +1,8 @@
 const gulp = require("gulp"),
     concat = require("gulp-concat"),
     connect = require('gulp-connect'),//服务器
+    Proxy = require('gulp-connect-proxy'),//服务器端口扩展
+    Proxy2 = require('http-proxy-middleware'),//服务器端口扩展
     less = require('gulp-less'),
     watchLess = require('gulp-watch-less'),
     clean = require('gulp-clean'),
@@ -14,11 +16,20 @@ gulp.task('connect', function () {
         port: 6060,
         livereload: true,
         middleware: function (connect, opt) {
-            var Proxy = require('gulp-connect-proxy');//服务器端口扩展
-            opt.route = '/proxy/220.197.219.235:8089/';
+
+            opt.route = '/proxy';
             var proxy = new Proxy(opt);
             return [proxy];
         }
+        // middleware:function (connect,opt) {
+        //     return[Proxy2('/server',{
+        //         target: 'http://220.197.219.235:8089/YHPC/oneScreen/titleNum',
+        //         // cookieDomainRewrite: { "unchanged.domain": "unchanged.domain", "old.domain": "new.domain", "*": "" }
+        //         changeOrigin: true,
+        //     })]
+        //
+        //
+        // }
     });
 });
 
@@ -81,6 +92,16 @@ gulp.task('modules', function () {
     const snapSvgPath = [bower + "/Snap.svg/dist/snap.svg-min.js"];
     gulp.src(snapSvgPath)
         .pipe(gulp.dest('build/modules/'));
+
+
+    const underscorePath = [npm + "/underscore/underscore-min.js"];
+    gulp.src(underscorePath)
+        .pipe(gulp.dest('build/modules/'));
+
+    const momentPath = [npm + "/moment/min/moment.min.js"];
+    gulp.src(momentPath)
+        .pipe(gulp.dest('build/modules/'));
+
 });
 
 

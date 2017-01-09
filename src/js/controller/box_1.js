@@ -3,7 +3,8 @@
  */
 console.log("box_1");
 var thisController = angular.module("box_1Module", []);
-thisController.controller("box_1Controller", ['$scope', 'lh_ajax', function ($scope, lh_ajax) {
+thisController.controller("box_1Controller", ['$scope', 'lh_ajax', '$rootScope',
+    function ($scope, lh_ajax,$rootScope) {
     $scope.ceshi = "测试成功";
 
 
@@ -21,11 +22,10 @@ thisController.controller("box_1Controller", ['$scope', 'lh_ajax', function ($sc
 
 
 
-
     //接收主控制器 发过来的 刷新消息
     $scope.$on("boxAll", function (event, boxMsg) {
         lh_ajax.get({
-            url: $scope.http+'box_1/1.json',
+            url: $rootScope.URL.box_1.url,
             data: boxMsg,
             success: function (msg) {
 

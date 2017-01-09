@@ -72,8 +72,8 @@
                     <div class="col-xs-12" style="padding-right: 0 !important;">
 
                         <dl class="dl-info">
-                            <dt>{{title.title}}</dt>
-                            <dd>{{title.content}}
+                            <dt>{{title.name}}</dt>
+                            <dd>当前选中地区 共有企业 {{title.qyNum}} 家, 隐患 {{title.yhNum}} 处.
                             </dd>
                         </dl>
                     </div>
@@ -83,8 +83,9 @@
             <div class="col-xs-4 " style="padding-left: 0; border-left: 1px solid #1C4960; ">
                 <div class="list-group list-1">
                     <a href="#" class="list-group-item dl-horizontal " ng-repeat="qiye in qiyeList" >
+
                         <dt class="list-1-1 " ng-class="{true:'active-1'}[qiye.selected]">{{$index + 1}}</dt>
-                        <dl class="list-1-2 "  ng-class="{true:'active-2'}[qiye.selected]">{{qiye.qiyeShuliang}}</dl>
+                        <dl class="list-1-2 "  ng-class="{true:'active-2'}[qiye.selected]">{{qiye.qyNum}}</dl>
                     </a>
 
                 </div>

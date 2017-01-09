@@ -7,8 +7,14 @@ var rootController = angular.module("rootModule", []);
 rootController.controller("rootController", ['$scope', 'lh_ajax', '$rootScope', '$timeout', '$interval',
     function ($scope, lh_ajax, $rootScope, $timeout, $interval) {
 
-        //所有ajax前面所要加的http地址
-        $scope.http = "server_json/";
+        //隐患类型对应的颜色值
+        $rootScope.YHLXCOLOR = [
+            {id: 1, "name": "一般隐患", "color": "#0071BB"},
+            {id: 2, "name": "重大隐患", "color": "#FE5945"},
+            {id: 3, "name": "未整改", "color": "#fff600"},
+            {id: 4, "name": "已整改", "color": "#16b424"}
+        ];
+
 
         //控制页面 加载模块
         $scope.include = {
@@ -26,27 +32,64 @@ rootController.controller("rootController", ['$scope', 'lh_ajax', '$rootScope', 
         };
 
 
+        //所有ajax前面所要加的http地址
+        $scope.http = "/proxy/220.197.219.235:8089/";
+
+        //各个模块的url
+        $rootScope.URL = {
+            "box_1": {"url": $scope.http + 'YHPC/oneScreen/titleNum'},
+            "box_2": {"url": $scope.http + 'YHPC/oneScreen/getNewestYh?num=5'},
+            "box_3": {"url": $scope.http + 'YHPC/oneScreen/getRadarData'},
+            "box_4": {"url": "server_json/box_4/guizhou.json"},
+            "box_5": {"url": $scope.http + 'YHPC/oneScreen/getQyYhNum?'},
+            "box_6": {"url": $scope.http + 'YHPC/oneScreen/getQyzcZgztNum'},
+            "box_7": {"url": $scope.http + 'YHPC/oneScreen/getZfxcZgztNum'},
+            "box_8": {"url": $scope.http + 'YHPC/oneScreen/getYhlbNum?num=5'},
+            "box_9": {"url": $scope.http + 'YHPC/oneScreen/getCurveDate?ksyf=2016-01&jsyf=2016-11'},
+            "box_10": {"url": $scope.http + 'YHPC/oneScreen/getCurveRightDate?ksnf=2014&jsnf=2016'},
+            "box_11": {"url": $scope.http + 'YHPC/oneScreen/getHylbDate'},
+        };
+
+
+
+
+
+
         //给全局广播的消息
         $scope.city = [
-            {"name": "贵阳市", "res": 12, "selected": true},
-            {"name": "六盘水市", "res": 12, "selected": true},
-            {"name": "遵义市", "res": 12, "selected": true},
-            {"name": "安顺市", "res": 12, "selected": true},
-            {"name": "毕节市", "res": 12, "selected": true},
-            {"name": "铜仁市", "res": 12, "selected": true},
-            {"name": "黔南布依族苗族自治州", "res": 12, "selected": true},
-            {"name": "黔西南布依族苗族自治州", "res": 12, "selected": true},
-            {"name": "黔东南苗族侗族自治州", "res": 12, "selected": true},
+            {"name": "贵阳", "res": 12, "selected": true},
+            {"name": "六盘水", "res": 12, "selected": true},
+            {"name": "遵义", "res": 12, "selected": true},
+            {"name": "安顺", "res": 12, "selected": true},
+            {"name": "毕节", "res": 12, "selected": true},
+            {"name": "铜仁", "res": 12, "selected": true},
+            {"name": "黔南", "res": 12, "selected": true},
+            {"name": "黔西南", "res": 12, "selected": true},
+            {"name": "黔东南", "res": 12, "selected": true},
 
         ];
+
+        // $scope.city2 = [
+        //     {"name": "贵阳市", "res": 12, "selected": true},
+        //     {"name": "六盘水市", "res": 12, "selected": true},
+        //     {"name": "遵义市", "res": 12, "selected": true},
+        //     {"name": "安顺市", "res": 12, "selected": true},
+        //     {"name": "毕节市", "res": 12, "selected": true},
+        //     {"name": "铜仁市", "res": 12, "selected": true},
+        //     {"name": "黔南布依族苗族自治州", "res": 12, "selected": true},
+        //     {"name": "黔西南布依族苗族自治州", "res": 12, "selected": true},
+        //     {"name": "黔东南苗族侗族自治州", "res": 12, "selected": true},
+        //
+        // ];
+
 
         //发送默认广播,
         $timeout(function () {
             $scope.$broadcast("boxAll", $scope.city[0]);
-        },0);
+        }, 0);
 
 
-        //定时发送广播
+        //定时发送广播,
         var cityNumber = 0;
         $interval(function () {
 
@@ -54,11 +97,11 @@ rootController.controller("rootController", ['$scope', 'lh_ajax', '$rootScope', 
                 // $interval.cancel(stop);
                 cityNumber = -1;
 
-            }else{
+            } else {
                 cityNumber = cityNumber + 1;
                 $scope.$broadcast("boxAll", $scope.city[cityNumber]);
             }
-        }, 10000);
+        }, 50000); //这个参数是 定时刷机整个页面的参数
 
 
 
@@ -83,9 +126,6 @@ rootController.controller("rootController", ['$scope', 'lh_ajax', '$rootScope', 
         // $scope.$on("box_10", callback);
         // $scope.$on("box_11", callback);
         // $scope.$on("box_12", callback);
-
-
-
 
 
         // setTimeout(function () {$scope.$on("box_1", callback)},1000)
