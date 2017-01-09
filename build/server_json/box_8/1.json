@@ -1,0 +1,12 @@
+{
+  "status": 1,
+  "info": "隐患类型分布",
+  "data": [
+    {"id":1,"type":"类型名字", "color":"#FE5945", "number":100, "percentage":"30%", "upTime":"2012-12-11"},
+    {"id":1,"type":"类型名字", "color":"#0071BB", "number":100, "percentage":"50%", "upTime":"2012-12-11"},
+    {"id":1,"type":"类型名字", "color":"#00B9BB", "number":100, "percentage":"30%", "upTime":"2012-12-11"},
+    {"id":1,"type":"类型名字", "color":"#941633", "number":100, "percentage":"30%", "upTime":"2012-12-11"},
+    {"id":1,"type":"类型名字", "color":"#FAAF3B", "number":100, "percentage":"30%", "upTime":"2012-12-11"}
+
+  ]
+}

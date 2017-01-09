@@ -1,0 +1,9 @@
+
+{
+  "status": 1,
+  "info": "隐患排查级别",
+  "data":[
+    {"name": "第一个","color": "#FE5945","value":100},
+    {"name": "第二个","color": "#032D4F","value":200}
+  ]
+}

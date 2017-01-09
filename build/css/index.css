@@ -1,0 +1,164 @@
+#box_1 {
+  height: 40px;
+}
+#box_1 .dl-1 {
+  color: #FF6A00;
+}
+#box_1 .dl-2 {
+  color: #00B9BB;
+}
+#box_1 .select {
+  border-radius: 0;
+  width: 170px;
+  padding-right: 0;
+}
+#box_2 {
+  height: 228px;
+  overflow: hidden;
+}
+#box_2 .table {
+  font-size: 12px;
+}
+#box_2 .table thead th {
+  background: #2E3440;
+  padding: 5px 10px;
+  border-bottom: 5px solid #02111C;
+}
+#box_2 .table tbody td {
+  padding: 0 10px;
+  border-bottom: 5px solid #02111C;
+}
+#box_2 .table tbody > tr {
+  background-color: #021D33;
+  color: #007A8F;
+}
+#box_2 .table tbody > tr:hover {
+  background-color: #941633;
+  color: #FFF;
+}
+#box_2 .table .action {
+  background-color: #941633;
+  color: #FFF;
+}
+#box_3 {
+  overflow: hidden;
+  height: 393px;
+}
+#box_3 #svgLeida {
+  margin: 20px 20px;
+}
+#box_3 .list-1 {
+  margin: 0;
+  padding: 3px;
+  padding-bottom: 0;
+  background: inherit;
+  height: 393px;
+}
+#box_3 .list-1 .list-group-item {
+  height: 40px;
+  padding: 0;
+  border: 0;
+  color: #fff;
+  overflow: hidden;
+  margin-bottom: 3px;
+}
+#box_3 .list-1 .list-1-1 {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background: #00B9BB;
+  font-weight: 900;
+}
+#box_3 .list-1 .list-1-2 {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background: #032845;
+  font-weight: 900;
+}
+#box_3 .list-1 .list-1-2:hover {
+  background: #FF6A00;
+}
+#box_3 .list-1 .active-1 {
+  background: #FF9D00;
+}
+#box_3 .list-1 .active-2 {
+  background: #FF6A00;
+}
+#box_3 .dl-info {
+  font-size: 12px;
+  padding: 10px;
+}
+#box_3 .dl-info dt {
+  color: #FF9D00;
+}
+#box_3 .dl-info dd {
+  color: #AB4600;
+}
+.box_4 {
+  height: 684px;
+  width: 100%;
+  background: -webkit-linear-gradient(top, transparent 20px, #032B41 20px), -webkit-linear-gradient(left, transparent 20px, #032B41 20px);
+  background-size: 21px 21px;
+  background-color: #021729;
+}
+#box_5 .panel-body {
+  height: 207px;
+}
+#box_5 .fade.ng-enter {
+  opacity: 0;
+}
+#box_5 .fade {
+  transition: 1s linear all;
+}
+#box_5 .fade.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+#box_5 .fade.ng-leave {
+  opacity: 1;
+}
+#box_5 .fade.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+#box_6 {
+  height: 237px;
+}
+#box_6 .ng-leave {
+  left: 10px;
+  opacity: 0;
+}
+#box_7 {
+  height: 237px;
+}
+#box_8 .panel-body {
+  height: 167px;
+}
+#box_9 {
+  height: 357px;
+}
+#box_10 {
+  height: 357px;
+}
+#box_11 {
+  height: 357px;
+}
+.loading {
+  width: 500px;
+  margin: 0 auto;
+  padding: 5px;
+  background-color: #021729;
+  border: 1px solid #1C4960;
+  position: fixed;
+  top: 100px;
+  left: 500px;
+  display: none;
+}
+.loading h5 {
+  margin: 5px 0;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: white;
+}
+
+/*# sourceMappingURL=index.css.map */
