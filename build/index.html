@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="modules/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!--<link href="modules/bootstrap/css/bootstrap-theme.css" rel="stylesheet">-->
+    <link href="css/bootstrap-theme-liaohui-anse.css" rel="stylesheet">
+    <link href="modules/angular/ui-select/select.css" rel="stylesheet">
+    <link href="modules/angular/angular-animate/ng-animation.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+</head>
+<body class="container-fluid" ng-controller="rootController">
+<div class="row">
+    <div class="col-sm-3 ">
+        <div ng-include="include.box_1"></div>
+        <div ng-include="include.box_2"></div>
+        <div ng-include="include.box_3"></div>
+    </div>
+    <div class="col-sm-6 col-padding-right col-padding-left">
+        <div ng-include="include.box_4"></div>
+    </div>
+    <div class="col-sm-3 ">
+        <div ng-include="include.box_5"></div>
+        <div class="row">
+            <div class="col-xs-6" style="padding-right: 5px;">
+                <div ng-include="include.box_6"></div>
+            </div>
+            <div class="col-xs-6 " style="padding-left: 5px;">
+                <div ng-include="include.box_7"></div>
+            </div>
+        </div>
+
+
+        <div ng-include="include.box_8"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6 col-padding-right">
+        <div ng-include="include.box_9"></div>
+    </div>
+    <div class="col-sm-3 col-padding-right">
+        <div ng-include="include.box_10"></div>
+    </div>
+    <div class="col-sm-3">
+        <div ng-include="include.box_11"></div>
+    </div>
+</div>
+
+
+<div class="loading">
+    <h5>DOWNLOADING</h5>
+    <div class="progress" style="background-color: #002940; position: relative;height: 14px;margin-bottom: 8px">
+        <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
+             style="width: 80%;background-color:#4cfffe;">
+        </div>
+    </div>
+    <ul class="list-unstyled" style="height:38px; background: #022038; overflow: hidden; font-size: 12px;
+    line-height: 1.5;margin: 0; padding-left: 5px; color: #218AB8;">
+        <li ng-repeat="box in boxMsgHtml">{{box}}</li>
+
+    </ul>
+</div>
+
+
+
+
+<script src="modules/jquery.js"></script>
+<script src="modules/echarts/echarts.js"></script>
+<script src="modules/layer/layer.js"></script>
+<script src="modules/snap.svg-min.js"></script>
+<script src="modules/angular/angular.js"></script>
+<script src="modules/angular/angular-animate/angular-animate.js"></script>
+<script src="modules/angular/angular-sanitize/angular-sanitize.js"></script>
+<script src="modules/angular/ui-select/select.min.js"></script>
+<script src="js/build.js"></script>
+</body>
+</html>
+
+
+<script type="text/ng-template" id="box_1.html">
+    <div ng-controller="box_1Controller" class="panel panel-default panel-null" id="box_1">
+        <ul class="list-inline">
+            <li>
+                <dl style="width: 122px" class="dl-1">
+                    <dt style="font-size: 18px;">{{zongheMsg.zhengfu}} <small style="font-size: 10px">(条)</small></dt>
+                    <dd style="font-size: 11px;">政府检查隐患</dd>
+                </dl>
+            </li>
+
+            <li>
+                <dl style="width: 121px" class="dl-2">
+                    <dt style="font-size: 18px;">{{zongheMsg.qiye}} <small style="font-size: 10px">(条)</small></dt>
+                    <dd style="font-size: 11px;">政府检查隐患</dd>
+                </dl>
+            </li>
+
+            <li>
+                <ui-select ng-model="switchPage.selected"  class="select" theme="bootstrap"  ng-disabled="disabled"
+
+                           title="Choose a country" on-select="dianji($model)">
+                    <ui-select-match placeholder="选择">{{$select.selected.name}}
+                    </ui-select-match>
+                    <ui-select-choices repeat="country in switchPage | filter: $select.search">
+                       <span ng-bind-html="country.name | highlight: $select.search"></span>
+                    </ui-select-choices>
+                </ui-select>
+            </li>
+        </ul>
+
+
+
+    </div>
+</script>
+<script type="text/ng-template" id="box_10.html">
+    <div ng-controller="box_10Controller" class="panel panel-default" id="box_10">
+
+        企业内容
+{{ceshi}}
+
+    </div>
+</script>
+<script type="text/ng-template" id="box_11.html">
+    <div ng-controller="box_11Controller" class="panel panel-default" id="box_11">
+
+    </div>
+</script>
+<script type="text/ng-template" id="box_2.html">
+    <div ng-controller="box_2Controller" class="panel panel-default panel-null" id="box_2">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>城市名字</th>
+                <th class="text-center">企业数量</th>
+                <th class="text-center">隐患数量</th>
+                <th class="text-right" style="width: 90px">更新时间</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="qiye in qiyeList"  ng-class="{true:'action'}[qiye.selected]" class="toggle">
+                <td ng-bind="qiye.name">...</td>
+                <td class="text-center" ng-bind="qiye.qiyeShuliang">...</td>
+                <td class="text-center" ng-bind="qiye.yinhuanShuliang">...</td>
+                <td class="text-right" ng-bind="qiye.upTime">...</td>
+            </tr>
+
+            </tbody>
+        </table>
+
+
+    </div>
+</script>
+<script type="text/ng-template" id="box_3.html">
+    <div ng-controller="box_3Controller" class="panel panel-default " id="box_3">
+        <div class="row">
+            <div class="col-xs-8">
+                <div>
+                    <svg id="svgLeida">
+                        <g>
+
+                            <circle fill="#254E82" fill-opacity="0.1" stroke="#032845" stroke-width="2.1199"
+                                    stroke-miterlimit="10" cx="131.473" cy="131.353" r="100.421"/>
+                            <path fill="#000D24" stroke="#032845" stroke-miterlimit="10" d="M131.473,1.254C59.621,1.254,1.374,59.502,1.374,131.353
+    s58.247,130.099,130.099,130.099s130.099-58.247,130.099-130.099S203.325,1.254,131.473,1.254z M131.473,231.774
+    c-55.461,0-100.421-44.96-100.421-100.421c0-55.461,44.96-100.421,100.421-100.421s100.421,44.96,100.421,100.421
+    C231.894,186.814,186.934,231.774,131.473,231.774z"/>
+                            <circle fill="#254E82" fill-opacity="0.1" stroke="#032845" stroke-miterlimit="10" cx="131.473"
+                                    cy="131.353" r="100.421"/>
+
+
+                            <circle class="yuan3" fill="none" transform="rotate(0,260,260)" stroke="#FBB03B"
+                                    stroke-width="2" stroke-miterlimit="10" stroke-dasharray="10.4454,10.4454" cx="132"
+                                    cy="132" r="66"/>
+
+                            <circle fill="#0F2036" stroke="#204A75" stroke-width="6.3597" stroke-miterlimit="10"
+                                    cx="130.714" cy="131.091" r="28.672"/>
+                            <circle fill="#2D5A9C" stroke="#204A75" stroke-width="1.6573" stroke-miterlimit="10"
+                                    cx="130.714" cy="131.091" r="13.39"/>
+                            <line class="line-left" fill="none" stroke="#1C4960" stroke-miterlimit="10" x1="130.714"
+                                  y1="131.091" x2="59.958" y2="201.847"/>
+                            <line class="line-right" fill="none" stroke="#1C4960" stroke-miterlimit="10" x1="130.714"
+                                  y1="131.091" x2="197.975" y2="204.769"/>
+                            <circle fill="#FF6A00" cx="130.714" cy="131.091" r="4.39"/>
+                            <g>
+                                <g>
+                                    <circle fill="#0096FC" cx="82.985" cy="219.371" r="2.12"/>
+                                    <circle fill="#0096FC" cx="59.283" cy="201.51" r="2.12"/>
+                                    <circle fill="#0096FC" cx="41.838" cy="177.499" r="2.12"/>
+                                    <circle fill="#0096FC" cx="32.176" cy="149.437" r="2.12"/>
+                                    <circle fill="#0096FC" cx="31.14" cy="119.777" r="2.12"/>
+                                    <circle fill="#0096FC" cx="38.821" cy="91.109" r="2.12"/>
+                                    <circle fill="#0096FC" cx="54.549" cy="65.94" r="2.12"/>
+                                    <circle fill="#0096FC" cx="76.948" cy="46.469" r="2.12"/>
+                                    <circle fill="#0096FC" cx="104.06" cy="34.398" r="2.12"/>
+                                    <circle fill="#0096FC" cx="133.518" cy="30.781" r="2.12"/>
+                                    <circle fill="#0096FC" cx="162.746" cy="35.935" r="2.12"/>
+                                    <circle fill="#0096FC" cx="189.19" cy="49.408" r="2.12"/>
+                                    <circle fill="#0096FC" cx="210.539" cy="70.025" r="2.12"/>
+                                    <circle fill="#0096FC" cx="224.927" cy="95.983" r="2.12"/>
+                                    <circle fill="#0096FC" cx="231.098" cy="125.013" r="2.12"/>
+                                    <circle fill="#0096FC" cx="228.511" cy="154.579" r="2.12"/>
+                                    <circle fill="#0096FC" cx="217.393" cy="182.096" r="2.12"/>
+                                    <circle fill="#0096FC" cx="198.716" cy="205.161" r="2.12"/>
+                                    <circle fill="#0096FC" cx="174.111" cy="221.757" r="2.12"/>
+                                    <circle fill="#0096FC" cx="145.729" cy="230.434" r="2.12"/>
+                                    <circle fill="#0096FC" cx="116.051" cy="230.434" r="2.12"/>
+                                </g>
+                            </g>
+                        </g>
+                        <linearGradient id="zhizhen" gradientUnits="userSpaceOnUse" x1="210.1581" y1="130.5872"
+                                        x2="164.5956" y2="67.8758">
+                            <stop offset="0" style="stop-color:#FFFF00"/>
+                            <stop offset="0.077" style="stop-color:#FFFF00;stop-opacity:0.8895"/>
+                            <stop offset="0.697" style="stop-color:#FFFF00;stop-opacity:0"/>
+                        </linearGradient>
+                        <path class="zhizhen" fill="url(#zhizhen)"
+                              d="M255.478,97.66c-6.922-25.968-21.767-48.7-41.793-65.45l-82.971,98.88L255.478,97.66z"/>
+                        <circle class="dian" fill="#ED1C24" cx="250" cy="85" r="3"/>
+                    </svg>
+                </div>
+
+
+                <div class="row" style="border-top: 1px solid #1C4960;;">
+                    <div class="col-xs-12" style="padding-right: 0 !important;">
+
+                        <dl class="dl-info">
+                            <dt>{{title.title}}</dt>
+                            <dd>{{title.content}}
+                            </dd>
+                        </dl>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-xs-4 " style="padding-left: 0; border-left: 1px solid #1C4960; ">
+                <div class="list-group list-1">
+                    <a href="#" class="list-group-item dl-horizontal " ng-repeat="qiye in qiyeList" >
+                        <dt class="list-1-1 " ng-class="{true:'active-1'}[qiye.selected]">{{$index + 1}}</dt>
+                        <dl class="list-1-2 "  ng-class="{true:'active-2'}[qiye.selected]">{{qiye.qiyeShuliang}}</dl>
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+</script>
+<script type="text/ng-template" id="box_4.html">
+    <div ng-controller="box_4Controller" class="panel panel-default box_4"   >
+
+        <div id="map" class="box_4"></div>
+
+
+    </div>
+</script>
+<script type="text/ng-template" id="box_5.html">
+    <div ng-controller="box_5Controller" class="panel panel-default" id="box_5">
+        <div class="panel-heading clearfix">
+            检查企业分布情况
+            <div class="pull-right" style="line-height: 25px; font-size: 12px; color: #00B9BB;">120地区</div>
+        </div>
+        <div class="panel-body" style="padding: 0;   overflow-x:hidden; overflow-y: auto;">
+
+            <div ng-repeat="qiye in qiyeList" class="slide-right"
+                 style="border-bottom: 1px solid #1e3449;background-color: #022038; margin-top: 5px">
+                <div class="progress " style="height:4px;background-color: #051222">
+                    <div class="progress-bar progress-bar-success" role="progressbar"
+                         aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
+                         style="width: {{qiye.percentage}};background-color:#25aaa7">
+                        <span class="sr-only">40% Complete (success)</span>
+                    </div>
+                </div>
+                <div style="font-size: 11px; padding:2px 5px;" class="clearfix">
+                    <div class="pull-left">
+                        <span ng-bind="qiye.name">企业名字</span>
+                        <span ng-bind="qiye.city">城市</span>
+                    </div>
+                    <div class="pull-right" ng-bind="qiye.number">120</div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</script>
+<script type="text/ng-template" id="box_6.html">
+    <div ng-controller="box_6Controller" class="panel panel-default" id="box_6">
+
+        企业内容
+
+
+    </div>
+</script>
+<script type="text/ng-template" id="box_7.html">
+    <div ng-controller="box_7Controller" class="panel panel-default" id="box_7">
+
+        企业内容
+
+
+    </div>
+</script>
+<script type="text/ng-template" id="box_8.html">
+    <div ng-controller="box_8Controller" class="panel panel-default" id="box_8">
+
+        <div class="panel-heading clearfix">
+            隐患类型分布
+            <div class="pull-right" style="line-height: 25px; font-size: 12px; color: #00B9BB;">TOP (5)</div>
+        </div>
+        <div class="panel-body" style="padding: 0; padding-top: 4px;   overflow:hidden; ">
+
+            <div ng-repeat="qiye in qiyeList" class="scale-fade-in"
+                 style="border-bottom: 1px solid #1e3449;background-color: #022038; margin-top: 5px; ">
+                <div class="progress " style="height:4px;background-color: #051222">
+                    <div class="progress-bar progress-bar-success" role="progressbar"
+                         aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
+                         style="width: {{qiye.percentage}};background-color:{{qiye.color}}">
+
+                    </div>
+                </div>
+                <div style="font-size: 11px; padding:2px 5px;" class="clearfix">
+                    <div class="pull-left" ng-bind="qiye.type"></div>
+                    <div class="pull-right" ng-bind="qiye.number">120</div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</script>
+<script type="text/ng-template" id="box_9.html">
+    <div ng-controller="box_9Controller" class="panel panel-default" id="box_9">
+        <div class="page-header">
+            asdf
+        </div>
+        <div class="" id="box_9_chart">
+
+        </div>
+
+
+    </div>
+</script>

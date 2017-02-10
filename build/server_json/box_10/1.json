@@ -1,0 +1,40 @@
+
+{
+  "status": 1,
+  "info": "隐患类型",
+  "data":[
+    {"name": "隐患类型1","color": "#FE5945","number":80},
+    {"name": "隐患类型1","color": "#0071BB","number":100},
+    {"name": "隐患类型1","color": "#00B9BB","number":100},
+    {"name": "隐患类型1","color": "#941633","number":100},
+    {"name": "隐患类型1","color": "#FAAF3B","number":100},
+    {"name": "隐患类型1","color": "#7BA6DB","number":100},
+    {"name": "隐患类型1","color": "#417D9C","number":100},
+    {"name": "隐患类型1","color": "#CEB439","number":100},
+    {"name": "隐患类型1","color": "#FF9875","number":100},
+    {"name": "隐患类型1","color": "#CB6D59","number":100},
+    {"name": "隐患类型1","color": "#9A555E","number":100},
+    {"name": "隐患类型1","color": "#7BA6DB","number":100},
+    {"name": "隐患类型1","color": "#64635D","number":100},
+    {"name": "隐患类型1","color": "#9BA2AA","number":100},
+    {"name": "隐患类型1","color": "#FFFFFF","number":100},
+    {"name": "隐患类型1","color": "#007A8F","number":100},
+    {"name": "隐患类型1","color": "#FE5945","number":80},
+    {"name": "隐患类型1","color": "#0071BB","number":100},
+    {"name": "隐患类型1","color": "#00B9BB","number":100},
+    {"name": "隐患类型1","color": "#941633","number":100},
+    {"name": "隐患类型1","color": "#FAAF3B","number":100},
+    {"name": "隐患类型1","color": "#7BA6DB","number":100},
+    {"name": "隐患类型1","color": "#417D9C","number":100},
+    {"name": "隐患类型1","color": "#CEB439","number":100},
+    {"name": "隐患类型1","color": "#FF9875","number":100},
+    {"name": "隐患类型1","color": "#CB6D59","number":100},
+    {"name": "隐患类型1","color": "#9A555E","number":100},
+    {"name": "隐患类型1","color": "#7BA6DB","number":100},
+    {"name": "隐患类型1","color": "#64635D","number":100},
+    {"name": "隐患类型1","color": "#9BA2AA","number":100},
+    {"name": "隐患类型1","color": "#FFFFFF","number":100},
+    {"name": "隐患类型1","color": "#007A8F","number":100}
+
+  ]
+}

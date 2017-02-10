@@ -1,0 +1,9 @@
+
+{
+  "status": 1,
+  "info": "检查主体",
+  "data":[
+    {"name": "第一个","color": "#032D4F","value":400},
+    {"name": "第二个","color": "#0071BB","value":200}
+  ]
+}

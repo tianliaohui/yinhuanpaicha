@@ -1,0 +1,12 @@
+
+{
+  "status": 1,
+  "info": "企业监管隐患数",
+  "data":[
+    {"name": "监管类型1","color": "#FE5945","value":100},
+    {"name": "监管类型2","color": "#0071BB","value":50},
+    {"name": "监管类型3","color": "#00B9BB","value":60},
+    {"name": "监管类型4","color": "#941633","value":80},
+    {"name": "监管类型5","color": "#FAAF3B","value":40}
+  ]
+}
