@@ -140,3 +140,5 @@ $RECYCLE.BIN/
 
 bower_components/
 node_modules/
+build/
+*.iml
