@@ -141,5 +141,7 @@ $RECYCLE.BIN/
 *.iml
 /node_modules/
 /bower_components/
-/build/
 /npm-debug.log
+/bower.json
+/package.json
+/src/
