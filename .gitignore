@@ -138,7 +138,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-bower_components/
-node_modules/
-build/
 *.iml
+/node_modules/
+/bower_components/
+/build/
