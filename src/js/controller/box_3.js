@@ -8,8 +8,7 @@ thisController.controller("box_3Controller", ['$scope', 'lh_ajax', function ($sc
 
     //选择svg
     var dlSvg = Snap("#svgLeida").attr({
-        width: 263,
-        height: 263
+        viewBox:"0 0 300 300"
     });
 
 
@@ -210,4 +209,3 @@ thisController.controller("box_3Controller", ['$scope', 'lh_ajax', function ($sc
 
     });
 }]);
-
